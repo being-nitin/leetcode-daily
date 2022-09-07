@@ -18,15 +18,15 @@ class Solution {
         if(root==null){
             return "";
         }
-        if(root == null) return "";
-        String output = String.valueOf(root.val);
+        if(root == null) 
+            return "";
+        String output = Integer.toString(root.val);
 		
-        if(root.left != null || root.right != null) output += "(" + tree2str(root.left) + ")"; 
-        if(root.right != null) output += "(" + tree2str(root.right) + ")";            
+        if(root.left != null || root.right != null)
+            output += "(" + tree2str(root.left) + ")"; 
+        if(root.right != null)
+            output += "(" + tree2str(root.right) + ")";            
         
         return output;
-        
-        
-        
     }
 }
