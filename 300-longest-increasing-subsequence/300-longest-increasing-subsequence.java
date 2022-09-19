@@ -1,24 +1,20 @@
 class Solution {
-     List<Integer> list = new ArrayList<>();
-    public int lengthOfLIS(int[] nums) {
-        list.add(nums[0]);
-        
-        for (int i = 1; i < nums.length; i++) {
-            int num = nums[i];
-            if (num > list.get(list.size() - 1)) list.add(num); 
-            else list.set(binarySearch(num), num);
+    public int lengthOfLIS(int[] nums){
+        int n= nums.length;
+        int[] dp = new int [n];
+        dp[0]=1;
+        for(int i=1;i<n;i++){
+             dp[i]=1;
+            for(int j=0;j<n;j++){
+                if(nums[j]<nums[i]){
+                    dp[i]=Math.max(dp[i],dp[j]+1);
+                }
+            }
         }
-        return list.size();
-    }
-      private int binarySearch(int num) {
-        int left = 0, right = list.size() - 1;
-        while (left <= right) {
-            int mid = (left + right) / 2;
-            
-            if (list.get(mid) == num)  return mid;
-            if (list.get(mid) < num) left = mid + 1;
-            else right = mid - 1;
+        int res=dp[0];
+        for(int i=1;i<n;i++){
+            res=Math.max(res,dp[i]);
         }
-        return left;
+        return res;
     }
 }
