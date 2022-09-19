@@ -14,6 +14,6 @@ class Solution {
             set.add(sum);
             n = sum;
             }
-        return true; 
+        return true;
     }
 }
