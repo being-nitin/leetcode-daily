@@ -13,7 +13,7 @@ class Solution {
         int mod = (int)1e9+7;
         int ansSum = 0;
         for(int i=left-1;i<right;i++){
-            ansSum = (ansSum+sums[i])%mod;
+            ansSum = ansSum%mod +sums[i];
         }
         return ansSum%mod;
     }
