@@ -10,7 +10,7 @@ class Solution {
          result = mid;
          return result;
      }
-     else if((long) mid * mid > (long) x)
+     else if((long) mid * mid > x)
                 end = mid-1;
          
             else
