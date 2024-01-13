@@ -14,12 +14,12 @@ public class Solution {
         if(headA==null || headB==null){
             return null;
         }
-        ListNode x = headA;
+        ListNode x= headA;
         ListNode y = headB;
         while(x!=y){
         x = x==null?headB:x.next;
-        y = y==null?headA:y.next;
-            }
-        return x;
+        y =y==null?headA:y.next;
         }
+        return x;
     }
+}
