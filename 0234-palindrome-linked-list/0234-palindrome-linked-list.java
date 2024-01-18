@@ -10,35 +10,49 @@
  */
 class Solution {
     public boolean isPalindrome(ListNode head) {
-        if(head==null || head.next==null){
-            return true;
+//         if(head==null || head.next==null){
+//             return true;
+//         }
+//         ListNode slow = head;
+//         ListNode fast = head;
+//         while(fast!=null && fast.next!=null){
+//             slow = slow.next;
+//             fast = fast.next.next;
+//         }
+//         ListNode secondhalf = Reverselist(slow);
+//         while(secondhalf!=null){
+//             if(head.val!=secondhalf.val){
+//                 return false;
+//             }
+//             head = head.next;
+//             secondhalf = secondhalf.next;
+//         }
+//         return true;
+//     }
+    
+//     private ListNode Reverselist(ListNode head){
+//         ListNode prev = null;
+//         while(head!=null){
+//             ListNode next = head.next;
+//             head.next = prev;
+//             prev = head;
+//             head = next;
+//         }
+//         return prev;
+        Stack<Integer> stk = new Stack<Integer>();
+        ListNode curr = head;
+        while(curr!=null){
+            stk.push(curr.val);
+            curr = curr.next;
         }
-        ListNode slow = head;
-        ListNode fast = head;
-        while(fast!=null && fast.next!=null){
-            slow = slow.next;
-            fast = fast.next.next;
-        }
-        ListNode secondhalf = Reverselist(slow);
-        while(secondhalf!=null){
-            if(head.val!=secondhalf.val){
+        curr = head;
+        while(curr!=null){
+            int pope = stk.pop();
+            if(curr.val!=pope){
                 return false;
             }
-            head = head.next;
-            secondhalf = secondhalf.next;
+            curr = curr.next;
         }
         return true;
     }
-    
-    private ListNode Reverselist(ListNode head){
-        ListNode prev = null;
-        while(head!=null){
-            ListNode next = head.next;
-            head.next = prev;
-            prev = head;
-            head = next;
-        }
-        return prev;
-    }
-    
 }
