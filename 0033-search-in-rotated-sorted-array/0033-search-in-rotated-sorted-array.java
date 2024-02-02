@@ -1,14 +1,17 @@
 class Solution {
     public int search(int[] nums, int target) {
-        int low=0;
-        int high = nums.length-1;
+       int low = 0;
+    int high = nums.length-1;
         while(low<=high){
-            int mid = (low + high)/2;
+            int mid = low + (high-low)/2;
             if(nums[mid]==target){
                 return mid;
             }
+            
+//             in which sorted part i am
             if(nums[low]<=nums[mid]){
-                if((target>=nums[low]) && target<nums[mid]){
+//                 my target is lying in that part 
+                if(target>=nums[low] && target<nums[mid]){
                     high = mid-1;
                 }
                 else{
@@ -25,6 +28,6 @@ class Solution {
             }
         }
         return -1;
-        
+    
     }
-}
+                   }
