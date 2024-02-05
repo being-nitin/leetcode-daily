@@ -1,6 +1,6 @@
 class Solution {
     public int singleNonDuplicate(int[] nums) {
-          // modified binary search
+          // Violation Process will give me my answer
         int low = 0;
         int high = nums.length-1;
         while(low<high){
@@ -16,5 +16,6 @@ class Solution {
             }
         }
         return nums[low];
+        
     }
 }
