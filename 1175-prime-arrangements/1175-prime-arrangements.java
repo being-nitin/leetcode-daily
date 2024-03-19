@@ -1,36 +1,32 @@
 class Solution {
     private static final int mod = 1000000007;
     public int numPrimeArrangements(int n) {
-        int totalPrime = 0;
+    int totalP = 0;
         for(int i=1;i<=n;i++){
             if(isPrime(i)){
-                totalPrime = totalPrime+1;
+                totalP = totalP+1;
             }
         }
-        int nonPrime = n- totalPrime;
-        long fact = (factorial(totalPrime)*factorial(nonPrime))%mod;
+        int nonP = n-totalP;
+        long fact = (factorial(totalP)*factorial(nonP))%mod; 
         return (int)fact;
-        
     }
-    // to calculate factorial 
-    
-    private long factorial(int n){
+    private long factorial(int a){
         long res = 1;
-        for(int i=2;i<=n;i++){
+        for(int i=2;i<=a;i++){
             res = (res*i)%mod;
         }
         return res;
     }
     
-    // to calculate that it is a prime number or not
-    private boolean isPrime(int n){
-        if(n<=1){
+    private boolean isPrime(int a){
+        if(a<=1){
             return false;
         }
-        for(int i=2;i*i<=n;i++){
-        if(n%i==0){
-            return false;
-        }
+        for(int i=2;i*i<=a;i++){
+            if(a%i==0){
+                return false;
+            }
         }
         return true;
     }
